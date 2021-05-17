@@ -7,9 +7,9 @@ export function createAsyncRouter(data) {
     const { path, component, redirect, name, meta, children } = menu
     const createRoute = {
       path,
-      component: component === '#' ? Layout : () => import(`@/views/${component}/index.vue`),
+      component: component === 'Layout' ? Layout : () => import(`@/views/${component}/index.vue`),
       // 如果 import() 报错，替换为以下代码：
-      // component: component === '#' ? Layout : (resolve) => require([`@/views/${component}/index`], resolve),
+      // component: component === 'Layout' ? Layout : (resolve) => require([`@/views/${component}/index`], resolve),
       redirect,
       name,
       meta

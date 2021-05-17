@@ -52,12 +52,16 @@ const actions = {
   generateRoutes({ commit }) {
     return new Promise(resolve => {
       getAsyncRouter().then(response => {
-        const routes = response.data
-        const newRoutes = createAsyncRouter(routes)
-        console.log('newRoutes')
-        console.log(newRoutes)
-        commit('SET_ROUTES', newRoutes)
-        resolve(newRoutes)
+        const { status, message, data } = response
+        if (status === 200) {
+          const newRoutes = createAsyncRouter(data)
+          console.log('newRoutes')
+          console.log(newRoutes)
+          commit('SET_ROUTES', newRoutes)
+          resolve(newRoutes)
+        } else {
+          console.log(message)
+        }
       })
     })
   }

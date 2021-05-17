@@ -2,13 +2,12 @@ export function getAsyncRouter() {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       resolve({
-        status: 'ok',
-        code: '200',
+        status: 200,
         message: '请求成功',
         data: [
           {
             path: '/form',
-            component: '#',
+            component: 'Layout',
             redirect: '/form',
             meta: {
               title: '表单',
@@ -26,7 +25,7 @@ export function getAsyncRouter() {
 
           {
             path: '/example',
-            component: '#',
+            component: 'Layout',
             redirect: '/example/table',
             name: 'Example',
             meta: { title: 'Example', icon: 'el-icon-s-help' },
@@ -48,7 +47,7 @@ export function getAsyncRouter() {
 
           {
             path: '/nested',
-            component: '#',
+            component: 'Layout',
             redirect: '/nested',
             meta: {
               title: '嵌套菜单',
@@ -106,7 +105,7 @@ export function getAsyncRouter() {
 
           {
             path: 'external-link',
-            component: '#',
+            component: 'Layout',
             children: [
               {
                 path: 'https://panjiachen.github.io/vue-element-admin-site/#/',

@@ -28,18 +28,14 @@ router.beforeEach(async(to, from, next) => {
     } else {
       const hasGetUserInfo = store.getters.name
       if (hasGetUserInfo) {
-        console.log('未重新加载路由')
         next()
       } else {
         try {
           // get user info
           await store.dispatch('user/getInfo')
-
           const addRoutes = await store.dispatch('permission/generateRoutes')
-          console.log('重新加载路由')
-
+          // add async route
           router.addRoutes(addRoutes)
-
           next({ ...to, replace: true })
         } catch (error) {
           // remove token and go to login page to re-login
