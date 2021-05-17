@@ -1,4 +1,4 @@
-import { getAsyncRouter } from '@/api/asyncRouter/async-router'
+import { getAsyncRouter } from '@/api/async-router'
 import { /* asyncRoutes, */ constantRoutes } from '@/router'
 import { createAsyncRouter } from '@/utils/create-async-router'
 
